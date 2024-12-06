@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
   imports: [CommonModule],
 })
 export class LogoDeZinzinComponent {
-  public opacity = 0.1;
-  public currentStyle: any = {};
-  public asciiMode = false;
-
+  public opacity = 1; // Visible par défaut
+  public currentStyle: any = {}; // Style initial
+  public asciiMode = false; // Mode ASCII désactivé par défaut
+  public isActive = false; // Définit si les animations peuvent être activées
 
   private animations = [
     'changeColor',
@@ -24,26 +24,26 @@ export class LogoDeZinzinComponent {
     'shake',
     'pulse',
   ];
-  
 
   ngOnInit(): void {
-    this.initializeLogo(); // Initialise la position et l'opacité
+    this.initializeLogo(); // Initialise la position fixe du logo
   }
 
-  // Initialise le logo à un endroit aléatoire avec opacité 0.1
+  // Place le logo à une position fixe de base
   private initializeLogo() {
     this.currentStyle = {
-      opacity: 0.1, // Opacité initiale
       position: 'absolute',
-      top: `${Math.random() * 80}vh`, // Position verticale aléatoire
-      left: `${Math.random() * 80}vw`, // Position horizontale aléatoire
+      top: '50%', // Centre verticalement
+      left: '50%', // Centre horizontalement
+      transform: 'translate(-50%, -50%)', // Centre exact
+      opacity: this.opacity,
       transition: 'all 0.5s ease', // Transition douce pour les animations
     };
   }
 
-  // Version ASCII du logo
-  public asciiLogo = `
-                                                                                                                             
+    // Version ASCII du logo
+    public asciiLogo = `
+                                                                                                                                 
                                                                                                                              
                                                                                                                              
                                                                                                                              
@@ -79,65 +79,69 @@ export class LogoDeZinzinComponent {
 
 `;
 
-public startChaos() {
-  this.currentStyle.opacity = 1; // Assure que le logo est visible
-  this.teleport(); // Déplace le logo à chaque appel
-
-  // Vérifie si aucune animation ne doit se déclencher
-  const noAnimationChance = Math.floor(Math.random() * 144); // Nombre entre 0 et 143
-  if (noAnimationChance === 0) {
-    console.log('Pas d’animation cette fois !');
-    return; // Arrête la fonction si le tirage est 0
+  // Active les animations au clic
+  public activateAnimations() {
+    this.isActive = true; // Permet les animations sur hover
+    console.log('Animations activées !');
   }
 
-  // Si une animation doit se déclencher, continue
-  const numberOfActions = Math.ceil(Math.random() * 5); // Entre 1 et 5 actions aléatoires
-  const selectedAnimations = [];
+  public startChaos() {
+    if (!this.isActive) return; // Si les animations ne sont pas activées, on ne fait rien
 
-  // Sélectionne des animations aléatoires
-  for (let i = 0; i < numberOfActions; i++) {
-    const randomAnimation =
-      this.animations[Math.floor(Math.random() * this.animations.length)];
-    selectedAnimations.push(randomAnimation);
-  }
-
-  // Exécute les animations sélectionnées
-  selectedAnimations.forEach((animation) => {
-    switch (animation) {
-      case 'changeColor':
-        this.changeColor();
-        break;
-      case 'blurEffect':
-        this.blurEffect();
-        break;
-      case 'teleport':
-        this.teleport();
-        break;
-      case 'transformShape':
-        this.transformShape();
-        break;
-      case 'explode':
-        this.explode();
-        break;
-      case 'asciiMode':
-        this.toggleAscii();
-        break;
-      case 'rotate':
-        this.rotate();
-        break;
-      case 'shake':
-        this.shake();
-        break;
-      case 'pulse':
-        this.pulse();
-        break;
+    // Vérifie si aucune animation ne doit se déclencher
+    const noAnimationChance = Math.floor(Math.random() * 144); // Chance sur 144
+    if (noAnimationChance === 0) {
+      console.log('Pas d’animation cette fois !');
+      return; // Arrête la fonction si le tirage est 0
     }
-  });
-}
 
+    // Si une animation doit se déclencher, continue
+    const numberOfActions = Math.ceil(Math.random() * 5); // Entre 1 et 5 actions aléatoires
+    const selectedAnimations: string[] = [];
 
+    // Sélectionne des animations aléatoires
+    for (let i = 0; i < numberOfActions; i++) {
+      const randomAnimation =
+        this.animations[Math.floor(Math.random() * this.animations.length)];
+      selectedAnimations.push(randomAnimation);
+    }
 
-  // Animation : Change la couleur
+    // Exécute les animations sélectionnées
+    selectedAnimations.forEach((animation) => {
+      switch (animation) {
+        case 'changeColor':
+          this.changeColor();
+          break;
+        case 'blurEffect':
+          this.blurEffect();
+          break;
+        case 'teleport':
+          this.teleport();
+          break;
+        case 'transformShape':
+          this.transformShape();
+          break;
+        case 'explode':
+          this.explode();
+          break;
+        case 'asciiMode':
+          this.toggleAscii();
+          break;
+        case 'rotate':
+          this.rotate();
+          break;
+        case 'shake':
+          this.shake();
+          break;
+        case 'pulse':
+          this.pulse();
+          break;
+      }
+    });
+  }
+
+  // Animations
+
   private changeColor() {
     this.currentStyle = {
       ...this.currentStyle,
@@ -145,7 +149,6 @@ public startChaos() {
     };
   }
 
-  // Animation : Applique un flou
   private blurEffect() {
     this.currentStyle = {
       ...this.currentStyle,
@@ -154,11 +157,11 @@ public startChaos() {
   }
 
   private teleport() {
-    const maxWidth = window.innerWidth - 150; // Largeur maximale (150 = taille approximative du logo)
+    const maxWidth = window.innerWidth - 150; // Largeur maximale (150 = taille du logo)
     const maxHeight = window.innerHeight - 150; // Hauteur maximale
     const newTop = Math.random() * maxHeight;
     const newLeft = Math.random() * maxWidth;
-  
+
     this.currentStyle = {
       ...this.currentStyle,
       position: 'absolute',
@@ -166,9 +169,7 @@ public startChaos() {
       left: `${newLeft}px`,
     };
   }
-  
 
-  // Animation : Transforme la forme
   private transformShape() {
     this.currentStyle = {
       ...this.currentStyle,
@@ -177,13 +178,12 @@ public startChaos() {
     };
   }
 
-  // Animation : Active/Désactive ASCII
   private toggleAscii() {
     this.asciiMode = !this.asciiMode;
   }
 
   private rotate() {
-    const randomAngle = Math.random() * 360; // Angle aléatoire entre 0 et 360°
+    const randomAngle = Math.random() * 360; // Angle aléatoire
     this.currentStyle = {
       ...this.currentStyle,
       transform: `rotate(${randomAngle}deg)`,
@@ -211,20 +211,4 @@ public startChaos() {
       opacity: 0.4, // Laisse le logo disparaître
     };
   }
-  
-
-  zinzinEffect() {
-    const element = document.querySelector('.logo');
-    if (!element) return;
-  
-    // Ajoute une classe pour activer l’animation
-    element.classList.add('zinzin-animation');
-  
-    // Retire la classe après la durée de l'animation
-    setTimeout(() => {
-      element.classList.remove('zinzin-animation');
-    }, 1500); // Durée de l'animation définie dans le CSS
-  }
-  
-
 }
