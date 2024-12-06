@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ChaosInputComponent } from "../chaos-input/chaos-input.component";
 
 @Component({
   selector: 'app-champ-horrible',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ChaosInputComponent],
   templateUrl: './champ-horrible.component.html',
   styleUrls: ['./champ-horrible.component.css']
 })

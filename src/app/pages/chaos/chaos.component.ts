@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ChaosInputComponent } from "../../components/chaos-input/chaos-input.component";
+import { ChampHorribleComponent } from "../../components/champ-horrible/champ-horrible.component";
 
 @Component({
   selector: 'app-chaos',
-  imports: [ChaosInputComponent],
+  imports: [ChampHorribleComponent],
   templateUrl: './chaos.component.html',
   styleUrl: './chaos.component.css'
 })
