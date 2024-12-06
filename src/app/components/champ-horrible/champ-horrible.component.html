@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Renseignement de votre Email</h2>
+  <form (ngSubmit)="addCharacter()">
+    <!-- Input uniquement numérique -->
+    <label for="numberInput">Entrez un nombre :</label>
+    <input id="numberInput" type="number" [(ngModel)]="numberValue" (keydown)="onKeyDown($event)"
+      (input)="onInputChange($event)" name="numberInput" required />
+
+    <p *ngIf="nbTry >= 2">Indice : Mettez un chiffre au dessus de 33</p>
+
+    <button type="submit" (click)="Try()">Ajouter le caractère à l'Email</button>
+    <button type="button" (click)="resetField()">Supprimer</button>
+
+    <!-- Affichage du texte avec le caractère ASCII ajouté -->
+    <p *ngIf="asciiCharacters.length > 0">
+      Votre Email : {{ asciiCharacters }}
+    </p>
+  </form>
+  <div>
+    <app-chaos-input></app-chaos-input>
+  </div>
+</div>

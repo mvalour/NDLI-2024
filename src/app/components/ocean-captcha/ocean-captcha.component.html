@@ -1,0 +1,29 @@
+<div class="captcha-overlay" *ngIf="showCaptcha">
+    <div class="captcha-container">
+        <h2>Identifie le son marin !</h2>
+
+        <div class="progress-bar">
+            <div class="progress" [style.width]="(currentStep / totalSteps) * 100 + '%'"></div>
+        </div>
+        <p class="step-indicator">Étape {{ currentStep }} sur {{ totalSteps }}</p>
+
+        <!-- Référence (image et son) -->
+        <img [src]="referenceImage" alt="Référence" class="reference-image" />
+        <p class="reference-name">{{ referenceName }}</p>
+        <button (click)="playSound(referenceSound)" class="play-btn">
+            🎵 Écouter la référence
+        </button>
+
+        <div class="options">
+            <button *ngFor="let option of options; let i = index" (click)="selectOption(i)"
+                [class.selected]="selectedOption === i" class="option-btn">
+                🔊 Écouter
+            </button>
+        </div>
+
+        <button class="validate-btn" [disabled]="selectedOption === null" (click)="validateAnswer()">
+            Valider
+        </button>
+        <p *ngIf="feedback" class="feedback">{{ feedback }}</p>
+    </div>
+</div>

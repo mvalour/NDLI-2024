@@ -1,0 +1,159 @@
+@keyframes chaoticRotate3D {
+  0% {
+    transform: rotate3d(1, 0, 0, 0deg);
+  }
+  10% {
+    transform: rotate3d(1, 1, 0, 45deg);
+  }
+  20% {
+    transform: rotate3d(0, 1, 1, 90deg);
+  }
+  30% {
+    transform: rotate3d(1, 1, 1, 135deg);
+  }
+  40% {
+    transform: rotate3d(1, 0, 1, 180deg);
+  }
+  50% {
+    transform: rotate3d(0, 1, 1, 225deg);
+  }
+  60% {
+    transform: rotate3d(1, 1, 0, 270deg);
+  }
+  70% {
+    transform: rotate3d(1, 0, 0, 315deg);
+  }
+  80% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+  90% {
+    transform: rotate3d(1, 1, 1, 405deg);
+  }
+  100% {
+    transform: rotate3d(1, 0, 1, 450deg);
+  }
+}
+
+*:hover {
+  animation: chaoticRotate3D 1s 1 linear;
+}
+button:hover {
+  animation: chaoticRotate3D 1s 1 linear;
+}
+
+/* Styles de base */
+.app {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Bouton principal */
+.button-primary {
+  background-color: #61dafb;
+  color: #1a1a1a;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+}
+
+/* Effet au survol */
+.button-primary:hover {
+  background-color: #4ec7e0;
+  transform: scale(1.05);
+}
+
+/* Effet lors du clic */
+.button-primary:active {
+  background-color: #3aa6b8;
+  transform: scale(0.98);
+}
+/* Styles de base */
+.app {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Effet de méga zoom */
+.mega-zoom {
+  transform: scale(5);
+  transition: transform 1s ease-in-out;
+}
+
+/* Effet de rotation */
+.rotation-effect {
+  transform: rotate(20deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Changement de couleur de fond */
+.color-change {
+  background-color: #ffeb3b;
+  transition: background-color 0.5s ease-in-out;
+}
+
+/* Mouvement aléatoire des nouvelles popups */
+@keyframes randomMovement {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(20px, -20px);
+  }
+  50% {
+    transform: translate(-20px, 20px);
+  }
+  75% {
+    transform: translate(15px, -15px);
+  }
+}
+
+.random-movement {
+  animation: randomMovement 1.2s ease-in-out infinite;
+}
+
+/* Inversion du curseur */
+.invert-cursor {
+  cursor: none;
+}
+
+.invert-cursor::after {
+  content: "";
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 2px solid red;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: rotate(180deg);
+}
+
+/* Effet de secousse de l'écran */
+.full-screen-shake {
+  animation: shake 0.5s;
+  animation-iteration-count: 4;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+/* Changement de couleur de fond */
+.background-color-change {
+  background-color: #ff4444 !important;
+}
