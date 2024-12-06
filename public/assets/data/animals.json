@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Baleine",
+      "referenceSrc": "assets/sounds/reference/whale.mp3",
+      "imitationSrc": "assets/sounds/imitation/whale_imit.mp3",
+      "image": "assets/img/whale.jpg"
+    },
+    {
+      "name": "Crabe",
+      "referenceSrc": "assets/sounds/reference/crab.mp3",
+      "imitationSrc": "assets/sounds/imitation/crab_imit.mp3",
+      "image": "assets/img/crab.jpg"
+    },
+    {
+      "name": "Plastic",
+      "referenceSrc": "assets/sounds/reference/plastic.mp3",
+      "imitationSrc": "assets/sounds/imitation/plastic_imit.mp3",
+      "image": "assets/img/plastic.jpg"
+    },
+    {
+      "name": "Otarie",
+      "referenceSrc": "assets/sounds/reference/sea_lion.mp3",
+      "imitationSrc": "assets/sounds/imitation/sea_lion_imit.mp3",
+      "image": "assets/img/sea_lion.jpg"
+    }
+  ]
+  
