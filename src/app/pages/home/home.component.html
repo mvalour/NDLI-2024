@@ -1,4 +1,6 @@
 <div class="home-container">
     <h1>Welcome to the Home Page</h1>
-    <app-champ-horrible></app-champ-horrible>
+    <div *ngIf="showCaptcha">
+        <app-ocean-captcha></app-ocean-captcha>
+    </div>
 </div>

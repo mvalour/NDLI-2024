@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
-import { ChampHorribleComponent } from '../../components/champ-horrible/champ-horrible.component';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { OceanCaptchaComponent } from '../../components/ocean-captcha/ocean-captcha.component';
 
 @Component({
   selector: 'app-home',
-  imports: [ChampHorribleComponent],
+  imports: [CommonModule, OceanCaptchaComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  showCaptcha: boolean = false; // Captcha désactivé au début
 
+  constructor() {}
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.showCaptcha = true;
+    }, 5000);
+  }
 }
