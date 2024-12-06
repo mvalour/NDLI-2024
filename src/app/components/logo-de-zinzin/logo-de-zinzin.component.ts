@@ -32,10 +32,7 @@ export class LogoDeZinzinComponent {
   // Place le logo à une position fixe de base
   private initializeLogo() {
     this.currentStyle = {
-      position: 'absolute',
-      top: '50%', // Centre verticalement
       left: '50%', // Centre horizontalement
-      transform: 'translate(-50%, -50%)', // Centre exact
       opacity: this.opacity,
       transition: 'all 0.5s ease', // Transition douce pour les animations
     };
