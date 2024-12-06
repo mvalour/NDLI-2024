@@ -1,0 +1,7 @@
+<div class="logo" [ngStyle]="currentStyle" (mouseenter)="startChaos()" (click)="zinzinEffect()">
+  <!-- Affichage du mode ASCII -->
+  <pre *ngIf="asciiMode" class="ascii-logo">{{ asciiLogo }}</pre>
+
+  <!-- Affichage de l'image -->
+  <img *ngIf="!asciiMode" src="/logo.jpg" alt="Logo Zinzin" />
+</div>
