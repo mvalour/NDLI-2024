@@ -1,4 +1,4 @@
-<div class="logo" [ngStyle]="currentStyle" (mouseenter)="startChaos()">
+<div class="logo" [ngStyle]="currentStyle" (mouseenter)="startChaos()" (click)="zinzinEffect()">
   <!-- Affichage du mode ASCII -->
   <pre *ngIf="asciiMode" class="ascii-logo">{{ asciiLogo }}</pre>
 

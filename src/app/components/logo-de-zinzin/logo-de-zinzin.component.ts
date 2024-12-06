@@ -83,7 +83,15 @@ public startChaos() {
   this.currentStyle.opacity = 1; // Assure que le logo est visible
   this.teleport(); // Déplace le logo à chaque appel
 
-  const numberOfActions = Math.ceil(Math.random() * 5); // Entre 1 et 3 actions aléatoires
+  // Vérifie si aucune animation ne doit se déclencher
+  const noAnimationChance = Math.floor(Math.random() * 144); // Nombre entre 0 et 143
+  if (noAnimationChance === 0) {
+    console.log('Pas d’animation cette fois !');
+    return; // Arrête la fonction si le tirage est 0
+  }
+
+  // Si une animation doit se déclencher, continue
+  const numberOfActions = Math.ceil(Math.random() * 5); // Entre 1 et 5 actions aléatoires
   const selectedAnimations = [];
 
   // Sélectionne des animations aléatoires
@@ -92,7 +100,6 @@ public startChaos() {
       this.animations[Math.floor(Math.random() * this.animations.length)];
     selectedAnimations.push(randomAnimation);
   }
-
 
   // Exécute les animations sélectionnées
   selectedAnimations.forEach((animation) => {
@@ -127,6 +134,7 @@ public startChaos() {
     }
   });
 }
+
 
 
   // Animation : Change la couleur
@@ -202,6 +210,20 @@ public startChaos() {
       animation: 'explode 1s forwards',
       opacity: 0.4, // Laisse le logo disparaître
     };
+  }
+  
+
+  zinzinEffect() {
+    const element = document.querySelector('.logo');
+    if (!element) return;
+  
+    // Ajoute une classe pour activer l’animation
+    element.classList.add('zinzin-animation');
+  
+    // Retire la classe après la durée de l'animation
+    setTimeout(() => {
+      element.classList.remove('zinzin-animation');
+    }, 1500); // Durée de l'animation définie dans le CSS
   }
   
 
