@@ -29,7 +29,7 @@
     border-radius: 5px;
     overflow: hidden;
     height: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .progress {
@@ -56,6 +56,7 @@
 .reference-name {
     font-weight: bold;
     margin-bottom: 10px;
+    color: #023e8a;
 }
 
 /* Bouton écouter la référence */
@@ -68,6 +69,11 @@
     cursor: pointer;
     font-size: 1rem;
     margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.play-btn:hover {
+    background-color: #005f8d;
 }
 
 /* Boutons des options */
@@ -83,6 +89,12 @@
     border: 1px solid #0077b6;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    background-color: #90e0ef;
+    color: #023e8a;
 }
 
 .option-btn.selected {
@@ -100,6 +112,7 @@
     cursor: pointer;
     font-size: 1rem;
     margin-top: 15px;
+    transition: background-color 0.3s ease;
 }
 
 .validate-btn:disabled {
@@ -107,34 +120,16 @@
     cursor: not-allowed;
 }
 
+.validate-btn:hover:enabled {
+    background-color: #3f9e66;
+}
+
 /* Feedback */
 .feedback {
     margin-top: 15px;
     font-weight: bold;
     color: #023e8a;
-}
-
-/* Feedback avec animation */
-.feedback {
-    margin-top: 15px;
-    font-weight: bold;
-    color: #023e8a;
     animation: fade-in 0.5s ease;
-}
-
-/* Barre de progression */
-.progress-bar {
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 10px;
-    margin-bottom: 10px;
-}
-
-.progress {
-    background-color: #0077b6;
-    height: 100%;
-    transition: width 0.3s ease;
 }
 
 /* Transition d'apparition */

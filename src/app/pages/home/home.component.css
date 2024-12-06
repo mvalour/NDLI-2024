@@ -1,4 +1,106 @@
+/* Conteneur principal */
 .home-container {
-    text-align: center;
-    margin-top: 2rem;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #023e8a;
+    color: #ffffff;
+    overflow-x: hidden; /* Élimine l'espace vide à droite */
+}
+
+/* Grille principale */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Grille de 3 colonnes */
+    gap: 20px; /* Espace plus large entre les blocs */
+    padding: 20px; /* Ajoute un espace global autour de la grille */
+}
+
+/* Briques (blocs) */
+.grid-item {
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: justify;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    margin: 0;
+}
+
+/* Tailles des blocs ajustées */
+.grid-item.small {
+    grid-column: span 1;
+    height: auto; /* Hauteur ajustée pour s'adapter au contenu */
+}
+
+.grid-item.medium {
+    grid-column: span 2;
+    height: auto; /* Hauteur ajustée pour s'adapter au contenu */
+}
+
+.grid-item.large {
+    grid-column: span 3;
+    height: auto; /* Hauteur ajustée pour s'adapter au contenu */
+}
+
+/* Nuances de bleu améliorées */
+.light-blue {
+    background-color: #ade8f4;
+    color: #023e8a;
+}
+
+.medium-blue {
+    background-color: #48cae4;
+    color: #023e8a;
+}
+
+.dark-blue {
+    background-color: #0077b6;
+    color: #ffffff;
+}
+
+.very-dark-blue {
+    background-color: #03045e;
+    color: #ffffff;
+}
+
+/* Titres */
+.grid-item h2 {
+    font-size: 1.6rem; /* Taille légèrement réduite */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: inherit;
+}
+
+/* Paragraphes */
+.grid-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: inherit;
+    margin-bottom: 10px; /* Ajoute de l'espacement en bas des paragraphes */
+}
+
+/* Image alignée en bas - Taille ajustée */
+.image-overlay {
+    width: 100%;
+    height: 150px; /* Taille réduite pour mieux s'intégrer au texte */
+    overflow: hidden;
+    margin-top: 10px;
+    border-radius: 5px; /* Coins légèrement arrondis */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.image-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.captcha {
+    color: #023e8a;
 }
