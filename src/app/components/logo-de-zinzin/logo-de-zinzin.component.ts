@@ -88,6 +88,8 @@ export class LogoDeZinzinComponent {
   public startChaos() {
     if (!this.isActive) return; // Si les animations ne sont pas activées, on ne fait rien
 
+    this.teleport();
+
     // Vérifie si aucune animation ne doit se déclencher
     const noAnimationChance = Math.floor(Math.random() * 144); // Chance sur 144
     if (noAnimationChance === 0) {
