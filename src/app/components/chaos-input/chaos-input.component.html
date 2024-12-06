@@ -1,0 +1,21 @@
+<div class="app">
+    <!-- Bouton pour ouvrir la première pop-up -->
+    <button (click)="openPopup()">Ouvrir la pop-up</button>
+  
+    <!-- Afficher toutes les pop-ups -->
+    <div class="popup-backdrop" *ngFor="let popup of popups; let i = index">
+      <!-- Appliquer dynamiquement les styles de position pour chaque pop-up -->
+      <div class="popup-container"
+           [ngStyle]="{'top': popup.top, 'left': popup.left}"
+           [attr.id]="popup.id"
+           [ngClass]="{'zoom-effect': popup.zoomEffect}">
+        <h2>Confirmation</h2>
+        <p>Es-tu sûr de vouloir continuer ?</p>
+        <div class="popup-actions">
+          <button (click)="closePopup(i, false)">Non</button>
+          <button (click)="closePopup(i, true)">Oui</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

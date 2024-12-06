@@ -1,0 +1,79 @@
+/* Styles de base */
+.app {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Styles pour la pop-up */
+.popup-backdrop {
+  position: fixed; /* Permet de garder la pop-up à l'écran */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  
+}
+
+.popup-container {
+  position: absolute; /* Nécessaire pour le déplacement aléatoire */
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+ transition: 0.5s all;
+}
+
+/* Animation d'apparition de la pop-up */
+@keyframes popupAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.popup-container {
+  animation: popupAppear 0.5s ease-out forwards;  /* Appliquer l'animation d'apparition */
+}
+
+/* Styles des boutons */
+.popup-actions button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.popup-actions button:first-child {
+  background-color: #f44336;
+  color: white;
+}
+
+.popup-actions button:last-child {
+  background-color: #4caf50;
+  color: white;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+
+.zoom-effect {
+  scale:7;
+}
