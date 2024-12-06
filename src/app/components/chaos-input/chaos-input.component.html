@@ -1,12 +1,16 @@
 <div class="app">
   <!-- Bouton pour ouvrir la première pop-up -->
-  <button (click)="openPopup()">Valider le formulaire</button>
+  <button class="button-primary" (click)="openPopup()">Valider le formulaire</button>
 
   <!-- Afficher toutes les pop-ups -->
   <div class="popup-backdrop" *ngFor="let popup of popups; let i = index">
     <!-- Appliquer dynamiquement les styles de position pour chaque pop-up -->
-    <div class="popup-container" [ngStyle]="{'top': popup.top, 'left': popup.left}" [attr.id]="popup.id"
-      [ngClass]="{'zoom-effect': popup.zoomEffect}">
+    <div class="popup-container" [ngStyle]="{'top': popup.top, 'left': popup.left}" [attr.id]="popup.id" [ngClass]="{
+        'mega-zoom': popup.megaZoom,
+        'random-movement': popup.randomMovement,
+        'rotation-effect': popup.rotation,
+        'color-change': popup.colorChange
+      }">
       <h2>Confirmation</h2>
       <p>Es-tu sûr de vouloir continuer ?</p>
       <div class="popup-actions">
