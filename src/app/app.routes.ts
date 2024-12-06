@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { ChaosInputComponent } from './components/chaos-input/chaos-input.component';
+import { ChaosComponent } from './pages/chaos/chaos.component';
 
 export const routes: Routes = [
     {
@@ -9,7 +9,7 @@ export const routes: Routes = [
     },
     {
         path: 'chaos',
-        component: ChaosInputComponent
+        component: ChaosComponent
     },
     {
         path: '**',
