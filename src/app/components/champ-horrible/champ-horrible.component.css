@@ -1,0 +1,109 @@
+/* Conteneur principal */
+.container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(to bottom right, #6a11cb, #2575fc); /* Dégradé violet/bleu */
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: white;
+  }
+  
+  /* Titre ou texte principal */
+  .container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Champ d'entrée */
+  input {
+    width: 80%;
+    padding: 10px;
+    margin: 15px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: white;
+    color: #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  input:focus {
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Messages de texte */
+  p {
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  p.warning {
+    color: #ffcc00; /* Jaune lumineux */
+  }
+  
+  p.result {
+    color: #00ffcc; /* Vert lumineux */
+  }
+  
+  /* Boutons */
+  button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  button[type="submit"] {
+    background: #4caf50; /* Vert */
+  }
+  
+  button[type="submit"]:hover {
+    background: #43a047; /* Vert foncé */
+    transform: translateY(-3px);
+  }
+  
+  button[type="button"] {
+    background: #e53935; /* Rouge */
+  }
+  
+  button[type="button"]:hover {
+    background: #d32f2f; /* Rouge foncé */
+    transform: translateY(-3px);
+  }
+  
+  /* Animation au hover pour tous les boutons */
+  button:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 480px) {
+    .container {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    input {
+      width: 90%;
+    }
+  
+    button {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  
