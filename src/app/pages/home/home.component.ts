@@ -9,7 +9,7 @@ import { OceanCaptchaComponent } from '../../components/ocean-captcha/ocean-capt
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  showCaptcha: boolean = false; // Captcha désactivé au début
+  showCaptcha: boolean = false;
 
   constructor() {}
 

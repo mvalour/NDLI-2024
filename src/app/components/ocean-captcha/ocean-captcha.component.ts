@@ -22,8 +22,8 @@ export class OceanCaptchaComponent implements OnInit {
   totalSteps: number = 3;
   selectedOption: number | null = null;
   usedAnimals: Animal[] = [];
-
   currentAudio: HTMLAudioElement | null = null;
+  isValidating: boolean = false;
 
   constructor(private animalService: AnimalService) {}
 
@@ -40,7 +40,6 @@ export class OceanCaptchaComponent implements OnInit {
 
   playSound(src: string): void {
     this.stopCurrentAudio();
-
     this.currentAudio = new Audio(src);
     this.currentAudio.play();
   }
@@ -81,6 +80,16 @@ export class OceanCaptchaComponent implements OnInit {
 
     this.feedback = null;
     this.selectedOption = null;
+    this.isValidating = false;
+  }
+
+  resetCaptcha(): void {
+    this.feedback = 'Incorrect... Le captcha redémarre 🌊';
+    setTimeout(() => {
+      this.currentStep = 1;
+      this.usedAnimals = [];
+      this.generateCaptcha();
+    }, 2000);
   }
 
   selectOption(index: number): void {
@@ -89,14 +98,14 @@ export class OceanCaptchaComponent implements OnInit {
   }
 
   validateAnswer(): void {
+    if (this.isValidating || this.selectedOption === null) return;
+
+    this.isValidating = true;
     const correctAnimal = this.animals.find(
       (animal) => animal.referenceSrc === this.referenceSound
     );
 
-    if (
-      this.selectedOption !== null &&
-      this.options[this.selectedOption].src === correctAnimal?.imitationSrc
-    ) {
+    if (this.options[this.selectedOption].src === correctAnimal?.imitationSrc) {
       this.feedback = 'Correct ! Bien joué 🎉';
 
       if (this.currentStep < this.totalSteps) {
@@ -112,7 +121,7 @@ export class OceanCaptchaComponent implements OnInit {
         }, 2000);
       }
     } else {
-      this.feedback = 'Incorrect... Essaie encore 🌊';
+      this.resetCaptcha();
     }
   }
 }
